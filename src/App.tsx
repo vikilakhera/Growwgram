@@ -1,20 +1,29 @@
-import { Provider } from "react-redux";
-import FeedCard from "./components/feedCard";
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Header from "./components/header";
-import createReduxStore from "./store/createStore";
+import ScrollButton from './components/ScrollButton/scrollButton';
+import ErrorPage from './views/ErrorPage';
 import FeedPage from "./views/FeedPage";
-
-const store = createReduxStore();
+import UserProfilePage from './views/UserProfilePage';
 
 function App() {
   return (
-    <Provider store={store}>
-      <div>
+    <div className='abcd'>
+      <Router>
         <Header />
-        <FeedCard />
-        <FeedPage />
-      </div>
-    </Provider>
+        <ScrollButton />
+        <Switch>
+          <Route exact path='/user/:username'>
+            <UserProfilePage />
+          </Route>
+          <Route exact path='/'>
+            <FeedPage /> 
+          </Route>
+          <Route path="*">
+            <ErrorPage />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
   );
 }
 

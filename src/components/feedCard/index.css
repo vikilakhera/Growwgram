@@ -1,57 +1,78 @@
-.FC201Container {
-  background: #ffffff;
+.fc201Container {
+  background: var(--primary);
   width: 600px;
-  border: 1px solid lightgrey;
+  border: 1px solid var(--lightGrey);
   border-radius: 4px;
-  margin: 10px 0;
+  margin: 25px 0;
+  position: relative;
 }
-.FC201Header {
+.fc201Header {
   display: flex;
   padding: 16px;
   align-items: center;
   justify-content: flex-start;
   column-gap: 10px;
 }
-.FC201ProfileImageWrapper {
+.fc201ProfileImageWrapper {
   width: 35px;
+  height: 35px;
   border-radius: 40px;
+  cursor: pointer;
 }
-.FC201ProfileImage {
+.fc201ProfileImage {
   max-width: 100%;
   aspect-ratio: 1;
   border-radius: 40px;
+  object-fit: cover;
 }
-.FC201ProfileUsername {
+.fc201ProfileUsername {
   font-weight: 600;
+  margin-right: 10px;
+  cursor: pointer;
+  color: var(--secondary);
 }
-.FC201ImageWrapper {
+.fc201ImageWrapper {
   width: 600px;
+  position: relative;
 }
-.FC201CardImage {
+.fc201CardImage {
   max-width: 100%;
   height: auto;
 }
-.FC201Footer {
+.fc201Footer {
   padding: 0 16px;
+  text-align: left;
+  color: var(--secondary);
 }
-.FC201IconsWrapper {
+.fc201IconsWrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
   font-size: 20px;
 }
-.FC201IconsWrapperLeft {
+.fc201IconsWrapperLeft {
   display: flex;
   column-gap: 8px;
   font-size: 23px;
 }
-.FC201LikesWrapper {
+.fc201LikesWrapper {
   font-weight: 600;
   padding: 5px 0;
 }
-.FC201CaptionWrapper {
-  display: flex;
-  column-gap: 10px;
+.fc201CaptionWrapper {
   padding: 5px 0 16px;
+}
+.hidden{
+  opacity: 0;
+}
+
+@media (max-width: 450px){
+  .fc201Container{
+    width: 100%;
+    margin: 15px 0;
+  }
+  .fc201ImageWrapper{
+    width: 100%;
+  }
 }

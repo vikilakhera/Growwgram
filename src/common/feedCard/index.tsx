@@ -5,32 +5,32 @@ import ImageLoader from "../Loader/imageLoader";
 import './index.css';
 
 function FeedCard (props: Props) {
+  const { comment, likes, username, postImage, profileImage, height, width } = props;
   const [isLiked, setIsLiked] = useState(false);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const history = useHistory();
 
-  const height = (props.height / props.width) * 600;
-
+  const loaderHeight = (height / width) * 598;
 
   return(
     <div className="fc201Container">
 
-      <div onClick={() => history.push(`/user/${props.username}`)} className="fc201Header">
+      <div onClick={() => history.push(`/user/${username}`)} className="fc201Header">
         <div className="fc201ProfileImageWrapper">
-          <img className="fc201ProfileImage" src={props.profileImage} />
+          <img className="fc201ProfileImage" src={profileImage} alt="user" />
         </div>
         <div className="fc201ProfileUsername">
-          {props.username}
+          {username}
         </div>
       </div>
 
       <div className='fc201ImageWrapper' >
         {
           !isImageLoaded && (
-            <ImageLoader height={height} />
+            <ImageLoader height={loaderHeight} />
           )
         }
-        <img onLoad={() => setIsImageLoaded(true)} className="fc201CardImage" src={props.postImage}  alt='content' />
+        <img onLoad={() => setIsImageLoaded(true)} className="fc201CardImage" src={postImage}  alt='content' />
       </div>
 
       <div className="fc201Footer">
@@ -49,14 +49,14 @@ function FeedCard (props: Props) {
         </div>
         <div className="fc201LikesWrapper">
           {
-            isLiked ? `${props.likes + 1} likes` : `${props.likes} likes`
+            isLiked ? `${likes + 1} likes` : `${likes} likes`
           }
         </div>
         <div className="fc201CaptionWrapper">
           <strong className="fc201ProfileUsername">
-            {props.username}
+            {username}
           </strong>
-          {truncateUsername(props.comment, 50)}
+          {truncateUsername(comment, 50)}
         </div>
       </div>
 

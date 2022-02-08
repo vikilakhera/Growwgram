@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import ErrorMessage from '../../common/ErrorMessage/errorMessage';
 import UserInfoLoader from '../../common/Loader/userInfoLoader';
 import { getUserData } from '../../store/UserProfilePage/actionCreator';
 import { RootState } from '../../utils/types';
@@ -20,7 +21,11 @@ function UserInfo() {
   }
 
   if(hasError) {
-    return <div></div>
+    return (
+      <div className='ui201Container'>
+        <ErrorMessage />
+      </div>
+    )
   }
 
   return (

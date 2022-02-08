@@ -1,5 +1,6 @@
 import axios from "axios";
-import { BASE_URL, CLIENT_ID } from "./constants";
+import { CLIENT_ID } from "./constants";
+import { getUrl } from "./helpers";
 import { configureLocalStorage } from "./localStorage/helpers";
 import { FeedData, User } from "./types";
 
@@ -56,6 +57,3 @@ export function fetchUserPhtots(
   return axios.get(getUrl(url), { params });
 }
 
-export function getUrl(remainingUrl: string) {
-  return BASE_URL + remainingUrl;
-}

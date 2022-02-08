@@ -16,14 +16,12 @@ function Feeds() {
   const { data: feedsData, hasError, isLoading, hasMore } = useSelector((state: RootState) => state.feedPage)
 
   useEffect(() => {
-    dispatch(getFeedsData(page))
-  }, [page])
+    dispatch(removeFeedsData());
+  }, [])
 
   useEffect(() => {
-    return () => {
-      dispatch(removeFeedsData());
-    }
-  }, [])
+    dispatch(getFeedsData(page))
+  }, [page])
 
   const fetchNextPageData = () => {
     setPage(prev => prev + 1)

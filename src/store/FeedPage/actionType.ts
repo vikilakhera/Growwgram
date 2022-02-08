@@ -1,6 +1,4 @@
-import { ThunkAction } from "redux-thunk";
 import { FeedData } from "../../utils/types";
-import { initialState } from "./reducer";
 
 export const FEED_LOADING = 'FEED_LOADING';
 export const FEED_SUCCESS = 'FEED_SUCCESS';

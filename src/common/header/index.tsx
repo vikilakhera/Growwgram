@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router-dom';
 import { useEffect, useLayoutEffect, useState } from 'react';
-import './index.css';
+import './header.css';
 import sun from './images/sun.png';
 import moon from './images/moon.png';
 import { hardRefresh } from '../../utils/localStorage/helpers';

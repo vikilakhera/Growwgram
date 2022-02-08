@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { truncateUsername } from "../../utils/helpers";
 import ImageLoader from "../Loader/imageLoader";
-import './index.css';
+import './feedCard.css';
 
 function FeedCard (props: Props) {
   const { comment, likes, username, postImage, profileImage, height, width } = props;

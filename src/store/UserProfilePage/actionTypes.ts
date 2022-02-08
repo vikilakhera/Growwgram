@@ -1,4 +1,3 @@
-import { ThunkAction } from "redux-thunk";
 import { FeedData, User } from "../../utils/types";
 
 export const USER_DATA_LOADING = "USER_DATA_LOADING";

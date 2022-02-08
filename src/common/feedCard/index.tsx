@@ -9,10 +9,8 @@ function FeedCard (props: Props) {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const history = useHistory();
 
-  const calculateLoaderHeight = () => {
-    const height = (props.height / props.width) * 600;
-    return height;
-  }
+  const height = (props.height / props.width) * 600;
+
 
   return(
     <div className="fc201Container">
@@ -29,7 +27,7 @@ function FeedCard (props: Props) {
       <div className='fc201ImageWrapper' >
         {
           !isImageLoaded && (
-              <ImageLoader height={calculateLoaderHeight} />
+            <ImageLoader height={height} />
           )
         }
         <img onLoad={() => setIsImageLoaded(true)} className="fc201CardImage" src={props.postImage}  alt='content' />

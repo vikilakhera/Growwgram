@@ -1,13 +1,26 @@
-import { useSelector } from 'react-redux';
-import UserInfoLoader from '../../components/Loader/userInfoLoader';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import UserInfoLoader from '../../common/Loader/userInfoLoader';
+import { getUserData } from '../../store/UserProfilePage/actionCreator';
 import { RootState } from '../../utils/types';
 
 function UserInfo() {
+  const { username } = useParams<UrlParams>();
   const { userData: userData } = useSelector((state: RootState) => state.profilePage)
   const { data, hasError, isLoading } = userData;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUserData(username));
+  }, [])
 
   if(isLoading) {
     return <UserInfoLoader />
+  }
+
+  if(hasError) {
+    return <div></div>
   }
 
   return (
@@ -32,6 +45,10 @@ function UserInfo() {
       </div>
     </div>
   );
+}
+
+type UrlParams = {
+  username: string
 }
 
 export default UserInfo;

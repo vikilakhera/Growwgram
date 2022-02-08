@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import StoryLoader from '../../components/Loader/storyLoader';
+import StoryLoader from '../../common/Loader/storyLoader';
 import { truncateUsername } from '../../utils/helpers';
 import { RootState } from '../../utils/types';
 
@@ -8,12 +8,12 @@ function Story() {
   const history = useHistory();
   const { data: feedsData, isLoading, hasError } = useSelector((state: RootState) => state.feedPage)
 
-  if(hasError && feedsData.length === 0){
-    return <div></div>
+  if(isLoading && feedsData.length === 0){
+    return <StoryLoader />
   }
 
-  if(isLoading){
-    return <StoryLoader />
+  if(hasError && feedsData.length === 0){
+    return <div></div>
   }
 
   return (

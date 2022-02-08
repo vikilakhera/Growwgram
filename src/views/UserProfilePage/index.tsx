@@ -3,7 +3,7 @@ import UserInfo from './userInfo';
 import { useParams } from 'react-router-dom';
 import './index.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserData, getUserPhotos, removeUserData, removeUserPhotos } from '../../store/UserProfilePage/actionCreator';
+import { getUserData, removeUserData, removeUserPhotos } from '../../store/UserProfilePage/actionCreator';
 import { RootState } from '../../utils/types';
 import UserFeeds from './userfeeds';
 import UserGridView from './userGridView';
@@ -13,12 +13,13 @@ function UserProfilePage() {
   const [isActive, setIsActive] = useState(true);
   const { username } = useParams<UrlParams>();
 
-  const { userPhotos: userPhotos } = useSelector((state: RootState) => state.profilePage);
-  const { userData: userData } = useSelector((state: RootState) => state.profilePage)
+  const { hasError: hasPhotosError } = useSelector((state: RootState) => state.profilePage.userPhotos);
+  const { hasError: hasUserError } = useSelector((state: RootState) => state.profilePage.userData)
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getUserData(username));
+    dispatch(removeUserPhotos());
+    dispatch(removeUserData());
   }, [])
 
   const handleGridActive = () => {
@@ -29,14 +30,7 @@ function UserProfilePage() {
     setIsActive(false);
   }
 
-  useEffect(() => {
-    return () => {
-      dispatch(removeUserPhotos());
-      dispatch(removeUserData());
-    }
-  }, [])
-
-  if(userPhotos.hasError && userData.hasError){
+  if(hasPhotosError && hasUserError){
     return <UserPageNotFound />
   }
 

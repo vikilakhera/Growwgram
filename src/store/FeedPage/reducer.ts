@@ -1,7 +1,7 @@
 import { FEED_FAILURE, FEED_LOADING, FEED_REMOVE, FEED_SUCCESS, ReducerAction } from "./actionType";
 import { FeedData } from "../../utils/types";
 
-const initialState = {
+export const initialState = {
   isLoading: true,
   data: [] as FeedData[],
   hasError: false,

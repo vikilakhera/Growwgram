@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useDispatch, useSelector } from "react-redux";
-import CaughtUpMessage from "../../components/CaughtUpMessage/caughtUpMessage";
-import ErrorMessage from "../../components/ErrorMessage/errorMessage";
-import ThreeDots from "../../components/Loader/threeDots";
-import UserGridLoader from "../../components/Loader/userGridLoader";
+import CaughtUpMessage from "../../common/CaughtUpMessage/caughtUpMessage";
+import ErrorMessage from "../../common/ErrorMessage/errorMessage";
+import ThreeDots from "../../common/Loader/threeDots";
+import UserGridLoader from "../../common/Loader/userGridLoader";
 import { getUserPhotos } from "../../store/UserProfilePage/actionCreator";
 import { hardRefresh } from "../../utils/localStorage/helpers";
 import { RootState } from "../../utils/types";

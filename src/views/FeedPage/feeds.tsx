@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useDispatch, useSelector } from 'react-redux';
-import CaughtUpMessage from '../../components/CaughtUpMessage/caughtUpMessage';
-import ErrorMessage from '../../components/ErrorMessage/errorMessage';
-import FeedCard from '../../components/feedCard';
-import PostLoader from '../../components/Loader/postLoader';
-import ThreeDots from '../../components/Loader/threeDots';
+import CaughtUpMessage from '../../common/CaughtUpMessage/caughtUpMessage';
+import ErrorMessage from '../../common/ErrorMessage/errorMessage';
+import FeedCard from '../../common/feedCard';
+import PostLoader from '../../common/Loader/postLoader';
+import ThreeDots from '../../common/Loader/threeDots';
 import { getFeedsData, removeFeedsData } from '../../store/FeedPage/actionCreator';
 import { hardRefresh } from '../../utils/localStorage/helpers';
 import { FeedData, RootState } from '../../utils/types';

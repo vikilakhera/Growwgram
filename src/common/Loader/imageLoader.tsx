@@ -1,8 +1,7 @@
 import ContentLoader from 'react-content-loader'
 
-const ImageLoader = (props:Props) => {
-  const height = props.height();
-
+const ImageLoader = ({height}: Props) => {
+  
   return (
     <ContentLoader
       width={600}
@@ -10,7 +9,7 @@ const ImageLoader = (props:Props) => {
       viewBox={`0 0 600 ${height}`}
       backgroundColor="#d3d3d3"
       foregroundColor="#ecebeb"
-      style={{ position: 'absolute' }}
+      style={{ position: 'absolute', left: 0 }}
     >
       <rect x="0" y="0" rx="2" ry="2" width="600" height={height} />
     </ContentLoader>
@@ -18,7 +17,7 @@ const ImageLoader = (props:Props) => {
 }
 
 type Props = {
-  height: () => number;
+  height: number;
 }
 
 export default ImageLoader;

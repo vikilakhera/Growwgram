@@ -50,7 +50,6 @@ async function fetchApiData(url: string, params: object, cachingParams: CachingP
   } catch (error) {
     const response = getStaleDataFromLocalStorage(cachingParams.key)
     if(response){
-      response.data.stale = true;
       return response.data;
     }
     throw error;

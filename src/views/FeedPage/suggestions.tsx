@@ -2,23 +2,23 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../utils/types';
 import { useHistory } from 'react-router-dom';
 import { truncateUsername } from '../../utils/helpers';
-import SuggestionsLoader, { SuggestionsUserCardLoader } from '../../components/Loader/suggestionsLoader';
+import SuggestionsLoader, { SuggestionsUserCardLoader } from '../../common/Loader/suggestionsLoader';
 
 function Suggestions() {
   const history = useHistory();
   const { data: feedsData, isLoading, hasError } = useSelector((state: RootState) => state.feedPage)
 
-  if (hasError && feedsData.length === 0) {
-    return <div></div>
-  }
-
-  if (isLoading) {
+  if (isLoading && feedsData.length === 0) {
     return (
       <div className='sg201Container'>
         <SuggestionsUserCardLoader />
         <SuggestionsLoader />
       </div>
     )
+  }
+
+  if (hasError && feedsData.length === 0) {
+    return <div></div>
   }
 
   return (

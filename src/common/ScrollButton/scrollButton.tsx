@@ -22,7 +22,11 @@ const ScrollButton = () =>{
 
   useEffect(() => {
     window.addEventListener('scroll', toggleVisible);
-  })
+
+    return () => {
+      window.removeEventListener('scroll', toggleVisible);
+    }
+  }, [])
   
   return (
     <div onClick={scrollToTop} className={visible ? 'sb201Container fadeInUp' : 'sb201Container sb201Hidden'}>
